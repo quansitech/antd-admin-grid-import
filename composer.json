@@ -25,6 +25,9 @@
       "QsGridImport\\": "src/"
     }
   },
+  "conflict": {
+    "tiderjian/qs-grid-import": "*"
+  },
   "extra": {
     "qscmf": {
       "antd-admin": {
