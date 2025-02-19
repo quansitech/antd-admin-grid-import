@@ -155,7 +155,7 @@ class BaseTable extends React.Component {
     render() {
         this.updateBaseProp();
         return <Table columns={this.columns} dataSource={this.dataSource} expandable={{
-            expandedRowRender,
+            expandedRowRender: this.expandedRowRender,
             defaultExpandAllRows: true,
         }} pagination={false}/>
 

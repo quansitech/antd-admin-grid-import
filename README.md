@@ -121,15 +121,15 @@ $options = [
 4. CellType::SELECT 下拉选择
    > 类型为下拉选择是，配置值必须设置 options 下拉值，格式为键值对的数组
    > ```php
-     > $project_arr = [
-     >     1 => '项目1',
-     >     2 => '项目2',
-     >     3 => '项目3'
-     > ];
-     > 
-     > //省略详细配置，仅演示options的设置，以下雷同，不重复提示
-     > 'options' => $project_arr
-     >```
+   > $project_arr = [
+   >     1 => '项目1',
+   >     2 => '项目2',
+   >     3 => '项目3'
+   > ];
+   > 
+   > //省略详细配置，仅演示options的设置，以下雷同，不重复提示
+   > 'options' => $project_arr
+   >```
 
 PS. 除INPUT类型外，其余类型都在提交时会对提交值分别进行类型有效性验证
 
@@ -139,8 +139,8 @@ PS. 除INPUT类型外，其余类型都在提交时会对提交值分别进行�
    >
    > 独有设置 ignore
    > ```php
-    >  'ignore' => false // 设置为false后，保留不在options里的值，默认为ture
-    > ``` 
+   >  'ignore' => false // 设置为false后，保留不在options里的值，默认为ture
+   > ``` 
 
 6. CellType::DATETIME 日期+时间（格式: 2021-06-17 12:30:30）
 
@@ -158,11 +158,11 @@ PS. 除INPUT类型外，其余类型都在提交时会对提交值分别进行�
    > 1. 第一个参数为该单元格值
    > 2. 第二个参数为该行的所有值
    >
-   > ```php
-    > 'required' => function($val, $row) {
-    >    //业务逻辑 最后 return是否必填的布尔值
-    > }
-    >```
+   >```php
+   > 'required' => function($val, $row) {
+   >    //业务逻辑 最后 return是否必填的布尔值
+   > }
+   >```
 
 #### 验证回调
 
@@ -186,32 +186,32 @@ PS. 除INPUT类型外，其余类型都在提交时会对提交值分别进行�
 
   > children下的配置值其实与父级的配置一样，唯一不同的是多了个ref_key的值需要配置。该值接收一个数组，每个值表示与父级的关联字段
   > ```php
-    > $options = [
-    >   'data' => [
-    >     [
-    >         'title' => '项目',
-    >         'key' => 'project_id',
-    >         'type' => CellType::SELECT,
-    >         'options' => [ 1 => '项目1', 2 => '项目2'],
-    >         'required' => true,
-    >         'validate_callback' => function($val){
-    >             //验证逻辑
-    >         }
-    >     ]
-    >   ],
-    >   'children' => [
-    >      'ref_key' => [ 'project_id' ],
-    >      'data' => [
-    >          [
-    >             'title' => '团队名称',
-    >             'key' => 'team_name',
-    >             'type' => CellType::INPUT,
-    >             'required' => true
-    >          ]
-    >       ] 
-    >   ]
-    > ];
-    >```
+  > $options = [
+  >   'data' => [
+  >     [
+  >         'title' => '项目',
+  >         'key' => 'project_id',
+  >         'type' => CellType::SELECT,
+  >         'options' => [ 1 => '项目1', 2 => '项目2'],
+  >         'required' => true,
+  >         'validate_callback' => function($val){
+  >             //验证逻辑
+  >         }
+  >     ]
+  >   ],
+  >   'children' => [
+  >      'ref_key' => [ 'project_id' ],
+  >      'data' => [
+  >          [
+  >             'title' => '团队名称',
+  >             'key' => 'team_name',
+  >             'type' => CellType::INPUT,
+  >             'required' => true
+  >          ]
+  >       ] 
+  >   ]
+  > ];
+  >```
 
 PS. 子母表理论上支持无限嵌套，children下还可以继续设置children值，可按实际业务设置更复杂的导入方式。
 
